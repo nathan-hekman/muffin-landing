@@ -12,7 +12,7 @@
   // the 1px edge --cat-outline (light colorways need a visible edge). Mouth
   // stays Muffin pink (baked into the art).
   const COLORS = {
-    c1: { color: "#2C2723" },                                   // Midnight
+    c1: {},                                                     // Midnight (theme default so it reads in dark mode too)
     c2: { color: "#E08A3E", eye: "#5A3310" },                   // Marmalade
     c3: { color: "#9A938B" },                                   // Pebble
     c4: { color: "#8FA86B", eye: "#3F502A" },                   // Matcha

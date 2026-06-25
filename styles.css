@@ -78,7 +78,9 @@ a  { color: var(--link); text-decoration: none; }
   image-rendering: pixelated; overflow: visible;
 }
 @media (prefers-color-scheme: dark) {
-  .cat-svg { --cat-outline: #C7B6A3; }
+  /* Lift the body off near-black so the cat reads as a filled shape on dark,
+     not just a floating outline. Recolored swatches override --cat-color inline. */
+  .cat-svg { --cat-color: #3E362F; --cat-outline: #C9B8A4; }
 }
 
 /* ---------- buttons ---------- */
@@ -298,16 +300,34 @@ a  { color: var(--link); text-decoration: none; }
 }
 @media (max-width: 760px) {
   .nav-links { display: none; }
-  .hero { grid-template-columns: 1fr; text-align: center; min-height: 0; padding-top: 2.5rem; }
+
+  /* Hero: single column, asset on top, everything centered */
+  .hero { grid-template-columns: 1fr; text-align: center; min-height: 0; padding-top: 2rem; gap: 0.5rem; }
   .hero-sub { margin-inline: auto; }
   .hero-cta { justify-content: center; }
-  .hero-stage { order: -1; max-width: 340px; margin: 0 auto; }
+  .hero-foot { text-align: center; }
+  .hero-stage { order: -1; max-width: 300px; margin: 0 auto; }
+
+  /* Every section heading + body centers on mobile */
+  .section-head { text-align: center; }
+  .section-head h2 { margin-inline: auto; }
+  .section-head p { margin-inline: auto; }
+
+  /* Bento collapses to a single centered column */
   .bento { grid-template-columns: 1fr; }
   .cell-wide, .cell-lead { grid-column: span 1; }
-  .cell-split { flex-direction: column; align-items: flex-start; }
+  .cell { text-align: center; }
+  .cell p { margin-inline: auto; }
+  .cell-split { flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
+  .cell-split > div:first-child { max-width: none; }
+  .mini-row { align-items: center; }
+
   .color-row { grid-template-columns: repeat(3, 1fr); }
-  .foot { flex-direction: column; align-items: flex-start; }
+
+  /* Footer stacks and centers */
+  .foot { flex-direction: column; align-items: center; text-align: center; gap: 0.8rem; }
   .foot-links { margin-left: 0; }
+  .foot-copy { text-align: center; }
 }
 @media (max-width: 420px) {
   .color-row { grid-template-columns: repeat(2, 1fr); }
