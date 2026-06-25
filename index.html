@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Muffin - a pixel cat for your desktop</title>
+  <meta name="description" content="Muffin is a tiny pixel cat for your Mac. He watches your cursor, naps on your dock, purrs when petted, and reminds you to stretch. Three dollars, yours forever.">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <meta property="og:title" content="Muffin - a pixel cat for your desktop">
+  <meta property="og:description" content="A tiny pixel cat for your Mac. He watches your cursor, naps on your dock, and reminds you to take breaks.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/appicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="assets/fonts/outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+</head>
+<body>
+  <!-- soft grain / warmth overlay (fixed, non-interactive) -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav" id="top">
+    <a class="brand" href="#top" aria-label="Muffin home">
+      <span class="brand-mark" data-cat="brand" aria-hidden="true"></span>
+      <span class="brand-name">Muffin</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#tricks">Tricks</a>
+      <a href="#make-yours">Colors</a>
+      <a href="#price">Price</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button class="btn btn-primary nav-cta" data-buy>Get Muffin</button>
+  </header>
+
+  <main>
+    <!-- HERO: asymmetric split, live cat that watches your cursor -->
+    <section class="hero">
+      <div class="hero-copy">
+        <h1 class="hero-title">Muffin lives on<br>your desktop.</h1>
+        <p class="hero-sub">A pixel cat who follows your cursor, naps on your dock, and nudges you to take a break.</p>
+        <div class="hero-cta">
+          <button class="btn btn-primary btn-lg" data-buy>Get Muffin <span class="price-chip">$3</span></button>
+          <a class="btn btn-ghost btn-lg" href="#tricks">See his tricks</a>
+        </div>
+        <p class="hero-foot">For Apple Silicon Macs. One quiet little app.</p>
+      </div>
+      <div class="hero-stage">
+        <div class="stage-cat" data-cat="hero" data-follow="true"></div>
+        <div class="stage-dock" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- TRICKS: bento grid, varied cells, one live cat inside -->
+    <section class="tricks" id="tricks">
+      <div class="section-head">
+        <h2>Tiny cat. Proper character.</h2>
+        <p>He wanders over your windows and reacts to your day. No chores, no guilt, no tiny admin.</p>
+      </div>
+
+      <div class="bento">
+        <article class="cell cell-lead reveal">
+          <div class="cell-cat" data-cat="follow" data-follow="true"></div>
+          <div class="cell-text">
+            <h3>He watches your cursor</h3>
+            <p>Muffin follows every move with his eyes. Flick across the screen and he crouches to pounce.</p>
+          </div>
+        </article>
+
+        <article class="cell cell-tint cell-vignette reveal">
+          <div class="vignette-stage" aria-hidden="true">
+            <div class="vignette-cat pose-playbow" data-cat="grab" data-pose="playbow"></div>
+          </div>
+          <h3>Pick him up</h3>
+          <p>Grab him and he turns long and floppy, then snaps back into cat shape when released.</p>
+        </article>
+
+        <article class="cell cell-vignette reveal">
+          <div class="vignette-stage" aria-hidden="true">
+            <div class="vignette-cat" data-cat="purr" data-pose="idle"></div>
+            <span class="floaty-heart"></span><span class="floaty-heart"></span><span class="floaty-heart"></span>
+          </div>
+          <h3>Pet him, he purrs</h3>
+          <p>Little hearts, squinty-happy eyes, the whole bit.</p>
+        </article>
+
+        <article class="cell cell-wide reveal">
+          <div class="cell-split">
+            <div>
+              <h3>He keeps you honest</h3>
+              <p>A gentle focus timer for deep work, with stretch nudges when your chair wins too long.</p>
+            </div>
+            <div class="mini-row" aria-hidden="true">
+              <span class="mini-pill"><i class="ph ph-timer"></i> Focus timer</span>
+              <span class="mini-pill"><i class="ph ph-person-simple-walk"></i> Stretch nudge</span>
+              <span class="mini-pill"><i class="ph ph-moon-stars"></i> Dock naps</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="cell reveal">
+          <i class="ph ph-sparkle cell-ic" aria-hidden="true"></i>
+          <h3>Quiet by default</h3>
+          <p>Tiny, native, and always on top without making a production of it.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- MAKE YOURS: horizontal row of recolored cats -->
+    <section class="make-yours" id="make-yours">
+      <div class="section-head center">
+        <h2>Make Muffin yours.</h2>
+        <p>Recolor every part, or begin with a preset. Same small cat, exactly your palette.</p>
+      </div>
+      <div class="color-row" role="list">
+        <figure class="swatch reveal" role="listitem"><div class="swatch-cat" data-cat="c1"></div><figcaption>Midnight</figcaption></figure>
+        <figure class="swatch reveal" role="listitem"><div class="swatch-cat" data-cat="c2"></div><figcaption>Marmalade</figcaption></figure>
+        <figure class="swatch reveal" role="listitem"><div class="swatch-cat" data-cat="c3"></div><figcaption>Pebble</figcaption></figure>
+        <figure class="swatch reveal" role="listitem"><div class="swatch-cat" data-cat="c4"></div><figcaption>Matcha</figcaption></figure>
+        <figure class="swatch reveal" role="listitem"><div class="swatch-cat" data-cat="c5"></div><figcaption>Snow</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- PRICE: single offer, Apple Pay via Lemon Squeezy -->
+    <section class="price" id="price">
+      <div class="price-card reveal">
+        <div class="price-cat" data-cat="price" data-follow="true" aria-hidden="true"></div>
+        <h2>Three dollars. Yours forever.</h2>
+        <p class="price-lead">One tiny payment. No subscription, no account, no odd little catch.</p>
+        <ul class="price-list">
+          <li><i class="ph ph-check"></i> The full app, every trick</li>
+          <li><i class="ph ph-check"></i> Free updates as Muffin grows</li>
+          <li><i class="ph ph-check"></i> Apple Pay checkout, instant download</li>
+          <li><i class="ph ph-check"></i> Runs on macOS (Apple Silicon)</li>
+        </ul>
+        <button class="btn btn-primary btn-lg price-buy" data-buy>Get Muffin <span class="price-chip">$3</span></button>
+        <p class="price-fine">One-time payment. Secure checkout by Lemon Squeezy.</p>
+      </div>
+    </section>
+
+    <!-- FAQ: accordion -->
+    <section class="faq" id="faq">
+      <div class="section-head center">
+        <h2>Good questions.</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal">
+          <summary>Which Macs can run Muffin?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <div class="faq-body"><p>Any Apple Silicon Mac, M1 or newer, on macOS 12 Monterey or later. An Intel build is on the way.</p></div>
+        </details>
+        <details class="faq-item reveal">
+          <summary>How do I install him?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <div class="faq-body"><p>After checkout you get a disk image download. Open it, drag Muffin into Applications, and he is home.</p></div>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Is this a subscription?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <div class="faq-body"><p>No. Pay three dollars once and Muffin is yours, updates included. Nothing renews, nothing needs cancelling.</p></div>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Will he slow down my Mac?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <div class="faq-body"><p>He is a tiny native app that mostly loafs around. He sips power and stays out of your work.</p></div>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Does Muffin need any permissions?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <div class="faq-body"><p>Only if you want him to react to your typing. Granting Accessibility access turns on the typing animations. Everything else works without it.</p></div>
+        </details>
+        <details class="faq-item reveal">
+          <summary>What if I change my mind?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <div class="faq-body"><p>Email hello@muffin.boo within 14 days and we will refund you, no hard feelings.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <!-- closing CTA band -->
+    <section class="closer">
+      <div class="closer-cat" data-cat="closer" data-follow="true" aria-hidden="true"></div>
+      <h2>Your dock saved him a spot.</h2>
+      <button class="btn btn-primary btn-lg" data-buy>Get Muffin <span class="price-chip">$3</span></button>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-brand">
+      <span class="brand-mark sm" data-cat="footmark" aria-hidden="true"></span>
+      <span>Muffin</span>
+    </div>
+    <p class="foot-line">Made with care for your dock.</p>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="#price">Price</a>
+      <a href="#faq">FAQ</a>
+      <a href="mailto:hello@muffin.boo">Say hi</a>
+    </nav>
+    <p class="foot-copy">© 2026 Muffin</p>
+  </footer>
+
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
+  <script src="app.js"></script>
+</body>
+</html>
