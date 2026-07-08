@@ -1,10 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -10 50 50" width="500" height="500" shape-rendering="crispEdges">
-  <defs>
-    <style>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="-8 -10 50 50"
+   width="500"
+   height="500"
+   shape-rendering="crispEdges"
+   version="1.1"
+   id="svg34"
+   sodipodi:docname="idle-mutt.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+<defs
+     id="defs7">
+    <style
+       id="style1">
       :root {
-        --cat-color: #1A1A1A;
-        --cat-outline: #FFFFFF;
+        /* Biscuit default coat: warm tan, dark-brown outline, dark eyes. The
+           pattern system overrides these at runtime; these are the fallback. */
+        --cat-color: #E0A458;
+        --cat-outline: #5A3A1A;
         --cat-outline-width: 1;
+        --eye-color: #2A1A0A;
         --purr-face-x: 0px;
         --purr-face-y: 0px;
       }
@@ -13,8 +31,8 @@
       /* Tail rotation pivot at the body-inner point (24, 31) — the base barely moves, so it is not split out */
       .tail-sway { transform-origin: 24px 31px; animation: none; }
       .whiskers-flex { transform-origin: 16px 16px; animation: none; }
-      .ear-twitch-l { transform-origin: 8px 8px; animation: none; }
-      .ear-twitch-r { transform-origin: 19px 9px; animation: none; }
+      .ear-twitch-l { transform-origin: 6px 10px; animation: none; }
+      .ear-twitch-r { transform-origin: 22px 9px; animation: none; }
 
       .eye-l-blink {
         transform-origin: 9px 12.5px;
@@ -206,145 +224,449 @@
         100% { transform: translateY(0); }
       }
     </style>
-
-    <filter id="cat-outline" x="-20%" y="-20%" width="140%" height="140%">
-      <feMorphology operator="dilate" radius="1" in="SourceAlpha" result="dilated"/>
-      <feFlood flood-color="var(--cat-outline)" result="flood"/>
-      <feComposite in="flood" in2="dilated" operator="in" result="outline"/>
-      <feMerge>
-        <feMergeNode in="outline"/>
-        <feMergeNode in="SourceGraphic"/>
+    <filter
+       id="cat-outline"
+       x="-0.035714286"
+       y="-0.028571429"
+       width="1.0714286"
+       height="1.0571429">
+      <feMorphology
+         operator="dilate"
+         radius="1"
+         in="SourceAlpha"
+         result="dilated"
+         id="feMorphology1" />
+      <feFlood
+         flood-color="var(--cat-outline)"
+         result="flood"
+         id="feFlood1" />
+      <feComposite
+         in="flood"
+         in2="dilated"
+         operator="in"
+         result="outline"
+         id="feComposite1" />
+      <feMerge
+         id="feMerge2">
+        <feMergeNode
+           in="outline"
+           id="feMergeNode1" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode2" />
       </feMerge>
     </filter>
-
     <!-- 1px dark-gray outline on the eye whites — fixed dark gray -->
-    <filter id="eye-outline" x="-50%" y="-50%" width="200%" height="200%">
-      <feMorphology operator="dilate" radius="1" in="SourceAlpha" result="dilated"/>
-      <feFlood flood-color="#F5F5F5" result="flood"/>
-      <feComposite in="flood" in2="dilated" operator="in" result="outline"/>
-      <feMerge>
-        <feMergeNode in="outline"/>
-        <feMergeNode in="SourceGraphic"/>
+    <filter
+       id="eye-outline"
+       x="-50%"
+       y="-50%"
+       width="200%"
+       height="200%">
+      <feMorphology
+         operator="dilate"
+         radius="1"
+         in="SourceAlpha"
+         result="dilated"
+         id="feMorphology2" />
+      <feFlood
+         flood-color="#F5F5F5"
+         result="flood"
+         id="feFlood2" />
+      <feComposite
+         in="flood"
+         in2="dilated"
+         operator="in"
+         result="outline"
+         id="feComposite2" />
+      <feMerge
+         id="feMerge4">
+        <feMergeNode
+           in="outline"
+           id="feMergeNode3" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode4" />
       </feMerge>
     </filter>
-
-    <clipPath id="head-clip">
-      <path transform="translate(3 4)" d="M4 2.5H2.5V4H1.5V5.5H0.5V7H0V12H0.5V15H1.5V16.5H3V18H5.5V19H16.5V18H18.5V16.5H20V15H21V12H22V8H21.5V5H20.5V4H19V3H17.5V2H15V1H7V2H4V2.5Z"/>
+    <clipPath
+       id="head-clip">
+      <path
+         transform="translate(3 4)"
+         d="M4 2.5H2.5V4H1.5V5.5H0.5V7H0V12H0.5V15H1.5V16.5H3V18H5.5V19H16.5V18H18.5V16.5H20V15H21V12H22V8H21.5V5H20.5V4H19V3H17.5V2H15V1H7V2H4V2.5Z"
+         id="path4" />
     </clipPath>
-    <clipPath id="body-clip">
-      <path transform="translate(3 19)" d="M14.5 0H16.5V0.5H18.5V1.5H20V2.5H21V5.5H22V11H21V14H19.5V15H2.5V14H1V11H0V6H0.5V3H1.5V2H3.5V1H6.5V0H14.5Z"/>
+    <clipPath
+       id="body-clip">
+      <path
+         transform="translate(3 19)"
+         d="M14.5 0H16.5V0.5H18.5V1.5H20V2.5H21V5.5H22V11H21V14H19.5V15H2.5V14H1V11H0V6H0.5V3H1.5V2H3.5V1H6.5V0H14.5Z"
+         id="path5" />
     </clipPath>
-    <clipPath id="leg-fl-clip">
-      <path d="M6 29V26H7V25H10V26H11V28H12V31H13V32H14V35H13V36H9V35H8V31H7V29H6Z"/>
+    <clipPath
+       id="leg-fl-clip">
+      <path
+         d="M6 29V26H7V25H10V26H11V28H12V31H13V32H14V35H13V36H9V35H8V31H7V29H6Z"
+         id="path6" />
     </clipPath>
-    <clipPath id="leg-fr-clip">
-      <path d="M23 29V26H22V25H19V26H18V28H17V31H16V32H15V35H16V36H20V35H21V31H22V29H23Z"/>
+    <clipPath
+       id="leg-fr-clip">
+      <path
+         d="M23 29V26H22V25H19V26H18V28H17V31H16V32H15V35H16V36H20V35H21V31H22V29H23Z"
+         id="path7" />
     </clipPath>
     <!-- tail-clip is generated dynamically by installTailComponent in renderer.js -->
   </defs>
-
-  <g id="body-js" filter="url(#cat-outline)">
-    <g class="breathe-anim">
+  <g
+     id="body-js"
+     filter="url(#cat-outline)">
+    <g
+       class="breathe-anim"
+       id="g34">
       <!-- Tail — installTailComponent injects the path/patches/clipPath dynamically.
            Rotation pivot comes from the parent .tail-sway at (24,31). -->
-      <g class="hunting-tail-rise">
-        <g class="tail-sway">
-          <g id="tail" fill="var(--cat-color)" data-patch-frame="20 24 1 1"></g>
-        </g>
-      </g>
-
-      <!-- Body — backmost layer (drawn first so every other part stacks on top) -->
-      <g class="hunting-body-grow">
-        <g id="body" fill="var(--cat-color)" data-patch-frame="3 19 1 1">
-          <rect x="2" y="25.5" width="1" height="5.5"/>
-          <rect x="3" y="24.5" width="1" height="8"/>
-          <rect x="25" y="24.5" width="1" height="8"/>
-          <rect x="26" y="25.5" width="1" height="5.5"/>
-          <rect x="4" y="33" width="3" height="0.5"/>
-          <rect x="22" y="33" width="3" height="0.5"/>
-          <path transform="translate(3 19)" d="M14.5 0H16.5V0.5H18.5V1.5H20V2.5H21V5.5H22V11H21V14H19.5V15H2.5V14H1V11H0V6H0.5V3H1.5V2H3.5V1H6.5V0H14.5Z"/>
-          <g class="patches" clip-path="url(#body-clip)"></g>
-        </g>
-      </g>
-
-      <!-- Front legs (cf. default.svg) — left/right painted separately (legFl/legFr keys are split) -->
-      <g id="legs" fill="var(--cat-color)">
-        <g id="leg-fl" data-patch-frame="6 25 1 1">
-          <path d="M6 29V26H7V25H10V26H11V28H12V31H13V32H14V35H13V36H9V35H8V31H7V29H6Z"/>
-          <g class="patches" clip-path="url(#leg-fl-clip)"></g>
-        </g>
-        <g id="leg-fr" data-patch-frame="15 25 1 1">
-          <path d="M23 29V26H22V25H19V26H18V28H17V31H16V32H15V35H16V36H20V35H21V31H22V29H23Z"/>
-          <g class="patches" clip-path="url(#leg-fr-clip)"></g>
-        </g>
-      </g>
-
-      <!-- ===== FACE GROUP ===== -->
-      <g id="face-js">
-
-        <g class="whiskers-flex">
-          <g id="whiskers" fill="var(--cat-color)" data-heat-overlay="true">
-            <rect x="1" y="13" width="5" height="1"/>
-            <rect x="22" y="13" width="5" height="1"/>
-            <rect x="0" y="15" width="6" height="1"/>
-            <rect x="23" y="15" width="6" height="1"/>
-            <rect x="1" y="18" width="5" height="1"/>
-            <rect x="22" y="18" width="5" height="1"/>
+      <g
+         class="hunting-tail-rise"
+         id="g9">
+        <g
+           class="tail-sway"
+           id="g8">
+          <g
+             id="tail"
+             fill="var(--cat-color)"
+             data-patch-frame="20 24 1 1">
+            <path
+               transform="translate(20 24)"
+               d="M5 4H6V2H7V0H8V-3H9V-6H10V-3H9V0H8V2H7V4H6V6H5V5H4V4Z"
+               fill="var(--cat-color)"
+               id="path8" />
           </g>
         </g>
-
+      </g>
+      <!-- Body — backmost layer (drawn first so every other part stacks on top) -->
+      <g
+         class="hunting-body-grow"
+         id="g15">
+        <g
+           id="body"
+           fill="var(--cat-color)"
+           data-patch-frame="3 19 1 1">
+          <rect
+             x="2"
+             y="25.5"
+             width="1"
+             height="5.5"
+             id="rect9" />
+          <rect
+             x="3"
+             y="24.5"
+             width="1"
+             height="8"
+             id="rect10" />
+          <rect
+             x="25"
+             y="24.5"
+             width="1"
+             height="8"
+             id="rect11" />
+          <rect
+             x="26"
+             y="25.5"
+             width="1"
+             height="5.5"
+             id="rect12" />
+          <rect
+             x="4"
+             y="33"
+             width="3"
+             height="0.5"
+             id="rect13" />
+          <rect
+             x="22"
+             y="33"
+             width="3"
+             height="0.5"
+             id="rect14" />
+          <path
+             transform="translate(3 19)"
+             d="M14.5 0H16.5V0.5H18.5V1.5H20V2.5H21V5.5H22V11H21V14H19.5V15H2.5V14H1V11H0V6H0.5V3H1.5V2H3.5V1H6.5V0H14.5Z"
+             id="path14" />
+          <g
+             class="patches"
+             clip-path="url(#body-clip)"
+             id="g14" />
+        </g>
+      </g>
+      <!-- Front legs (cf. default.svg) — left/right painted separately (legFl/legFr keys are split) -->
+      <g
+         id="legs"
+         fill="var(--cat-color)">
+        <g
+           id="leg-fl"
+           data-patch-frame="6 25 1 1">
+          <path
+             d="M6 29V26H7V25H10V26H11V28H12V31H13V32H14V35H13V36H9V35H8V31H7V29H6Z"
+             id="path15" />
+          <g
+             class="patches"
+             clip-path="url(#leg-fl-clip)"
+             id="g16" />
+        </g>
+        <g
+           id="leg-fr"
+           data-patch-frame="15 25 1 1">
+          <path
+             d="M23 29V26H22V25H19V26H18V28H17V31H16V32H15V35H16V36H20V35H21V31H22V29H23Z"
+             id="path16" />
+          <g
+             class="patches"
+             clip-path="url(#leg-fr-clip)"
+             id="g17" />
+        </g>
+      </g>
+      <!-- White coat splotches (Biscuit is tan-and-white): a chest/belly blaze
+           and white paw tips. Literal white so they read regardless of coat color. -->
+      <g
+         id="splotches"
+         aria-hidden="true">
+        <rect
+           x="12.5"
+           y="21"
+           width="5"
+           height="11"
+           fill="#FFFFFF"
+           id="rect17" />
+        <rect
+           x="11.5"
+           y="24"
+           width="7"
+           height="5"
+           fill="#FFFFFF"
+           id="rect18" />
+        <rect
+           x="8"
+           y="33.5"
+           width="5"
+           height="2.5"
+           fill="#FFFFFF"
+           id="rect19" />
+        <rect
+           x="16"
+           y="33.5"
+           width="5"
+           height="2.5"
+           fill="#FFFFFF"
+           id="rect20" />
+      </g>
+      <!-- Front-leg separator: a short dark line dividing the two front legs. -->
+      <rect
+         x="14"
+         y="31.5"
+         width="1"
+         height="4.5"
+         fill="var(--cat-outline)"
+         aria-hidden="true"
+         id="rect21" />
+      <!-- ===== FACE GROUP ===== -->
+      <g
+         id="face-js">
+        <!-- Biscuit is a dog: no whiskers. The #whiskers group is kept (empty) so
+             the purr-whiskers animation hook + heat-overlay wiring stay valid. -->
+        <g
+           class="whiskers-flex"
+           id="g21">
+          <g
+             id="whiskers"
+             fill="var(--cat-color)"
+             data-heat-overlay="true" />
+        </g>
         <!-- Ears — installEarComponents injects the standard ear path dynamically.
              The parent .ear-twitch-l/.ear-twitch-r keep the twitch animation. -->
-        <g class="ear-twitch-l">
-          <g id="ear-left" data-ear-position="5 2">
-            <path transform="translate(5 2)" d="M0 7V4H1V2H2V1H3V0H4V2H5V3H6V7H5V8H1V7H0Z" fill="var(--cat-color)"/>
+        <!-- Default breed = Mutt (one ear up, one folded). The pattern.js breed
+             engine overrides these at runtime per the selected style; this inline
+             copy keeps the static/Inkscape view matching the default. -->
+        <g
+           class="ear-twitch-l"
+           id="g22">
+          <g
+             id="ear-left"
+             data-ear-position="3 1">
+            <path
+               transform="translate(3 1)"
+               d="M0 9V5H1V3H2V1H3V0H4V2H5V5H6V9Z"
+               fill="var(--cat-color)"
+               id="path21" />
           </g>
         </g>
-        <g class="ear-twitch-r">
-          <g id="ear-right" data-ear-position="17 2">
-            <path transform="translate(17 2)" d="M1 3H0V7H1V8H4V7H5V2H4V1H3V0H2V1H1V3Z" fill="var(--cat-color)"/>
+        <g
+           class="ear-twitch-r"
+           id="g23">
+          <g
+             id="ear-right"
+             data-ear-position="19 1">
+            <path
+               transform="translate(19 1)"
+               d="M0 8V3H1V1H2V0H4V1H5V3H6V5H4V4H3V3H2V5H1V8Z"
+               fill="var(--cat-color)"
+               id="path22" />
           </g>
         </g>
-
-        <g id="head" fill="var(--cat-color)" data-patch-frame="3 5 1 1">
-          <path transform="translate(3 4)" d="M4 2.5H2.5V4H1.5V5.5H0.5V7H0V12H0.5V15H1.5V16.5H3V18H5.5V19H16.5V18H18.5V16.5H20V15H21V12H22V8H21.5V5H20.5V4H19V3H17.5V2H15V1H7V2H4V2.5Z"/>
-          <g class="patches" clip-path="url(#head-clip)"></g>
+        <g
+           id="head"
+           fill="var(--cat-color)"
+           data-patch-frame="3 5 1 1">
+          <path
+             transform="translate(3 4)"
+             d="M4 2.5H2.5V4H1.5V5.5H0.5V7H0V12H0.5V15H1.5V16.5H3V18H5.5V19H16.5V18H18.5V16.5H20V15H21V12H22V8H21.5V5H20.5V4H19V3H17.5V2H15V1H7V2H4V2.5Z"
+             id="path23" />
+          <g
+             class="patches"
+             clip-path="url(#head-clip)"
+             id="g24" />
         </g>
-
-        <g id="eyes-js">
-          <g class="eye-l-blink">
-            <g id="eye-left">
-              <g fill="var(--eye-bg-color, #FFFFFF)">
-                <rect x="7.5" y="11" width="0.5" height="3"/>
-                <rect x="11" y="11" width="0.5" height="3"/>
-                <rect x="8" y="10.5" width="3" height="4"/>
+        <!-- forehead blaze (white marking running down between the ears) -->
+        <rect
+           id="face-blaze"
+           x="13"
+           y="5"
+           width="3"
+           height="5.5"
+           fill="#FFFFFF"
+           aria-hidden="true" />
+        <g
+           id="eyes-js">
+          <g
+             class="eye-l-blink"
+             id="g27">
+            <g
+               id="eye-left">
+              <g
+                 fill="#FFFFFF"
+                 id="g26">
+                <rect
+                   x="7.5"
+                   y="11"
+                   width="0.5"
+                   height="3"
+                   id="rect24" />
+                <rect
+                   x="11"
+                   y="11"
+                   width="0.5"
+                   height="3"
+                   id="rect25" />
+                <rect
+                   x="8"
+                   y="10.5"
+                   width="3"
+                   height="4"
+                   id="rect26" />
               </g>
-              <rect id="pupil-left" class="pupil-left" x="8.5" y="11.5" width="2" height="2.5" fill="var(--eye-color-left, var(--eye-color, var(--cat-color)))"/>
+              <rect
+                 id="pupil-left"
+                 class="pupil-left"
+                 x="8.5"
+                 y="11.5"
+                 width="2"
+                 height="2.5"
+                 fill="var(--eye-color, #2A1A0A)" />
             </g>
           </g>
-          <g class="eye-r-blink">
-            <g id="eye-right">
-              <g fill="var(--eye-bg-color, #FFFFFF)">
-                <rect x="16.5" y="11" width="0.5" height="3"/>
-                <rect x="20" y="11" width="0.5" height="3"/>
-                <rect x="17" y="10.5" width="3" height="4"/>
+          <g
+             class="eye-r-blink"
+             id="g30">
+            <g
+               id="eye-right">
+              <g
+                 fill="#FFFFFF"
+                 id="g29">
+                <rect
+                   x="17.5"
+                   y="11"
+                   width="0.5"
+                   height="3"
+                   id="rect27" />
+                <rect
+                   x="21"
+                   y="11"
+                   width="0.5"
+                   height="3"
+                   id="rect28" />
+                <rect
+                   x="18"
+                   y="10.5"
+                   width="3"
+                   height="4"
+                   id="rect29" />
               </g>
-              <rect id="pupil-right" class="pupil-right" x="17.5" y="11.5" width="2" height="2.5" fill="var(--eye-color-right, var(--eye-color, var(--cat-color)))"/>
+              <rect
+                 id="pupil-right"
+                 class="pupil-right"
+                 x="18.5"
+                 y="11.5"
+                 width="2"
+                 height="2.5"
+                 fill="var(--eye-color, #2A1A0A)" />
             </g>
           </g>
-          <rect class="closed-eye-line" x="7" y="12" width="5" height="1" fill="var(--cat-outline)"/>
-          <rect class="closed-eye-line" x="16" y="12" width="5" height="1" fill="var(--cat-outline)"/>
+          <rect
+             class="closed-eye-line"
+             x="7"
+             y="12"
+             width="5"
+             height="1"
+             fill="var(--cat-outline)"
+             id="rect30" />
+          <rect
+             class="closed-eye-line"
+             x="16"
+             y="12"
+             width="5"
+             height="1"
+             fill="var(--cat-outline)"
+             id="rect31" />
         </g>
-
-        <g id="mouth-nose" data-heat-overlay="true">
-          <rect x="13" y="14" width="3" height="1" fill="#df6177"/>
-          <rect x="14" y="15" width="1" height="2" fill="var(--cat-outline)"/>
-          <rect x="13" y="17" width="1" height="1" fill="var(--cat-outline)"/>
-          <rect x="15" y="17" width="1" height="1" fill="var(--cat-outline)"/>
+        <!-- Dog nose: a dark nose + connected mouth line, in the outline color so
+             it contrasts whatever coat color is active. -->
+        <g
+           id="mouth-nose"
+           data-heat-overlay="true">
+          <rect
+             x="12.5"
+             y="14.5"
+             width="4"
+             height="2"
+             fill="var(--cat-outline)"
+             id="rect32" />
+          <!-- resting closed mouth (shown normally) -->
+          <g class="rest-mouth">
+            <rect
+               x="14"
+               y="16.5"
+               width="1"
+               height="1.5"
+               fill="var(--cat-outline)"
+               id="rect33" />
+            <rect
+               x="11.5"
+               y="18"
+               width="6"
+               height="1"
+               fill="var(--cat-outline)"
+               id="rect34" />
+          </g>
+          <!-- happy panting mouth + pink tongue (revealed while being petted;
+               driven by styles.css .cat-svg.is-petting) -->
+          <g class="pant-mouth" aria-hidden="true">
+            <rect x="12" y="17" width="6" height="4" fill="var(--cat-outline)" />
+            <rect x="13" y="20" width="4" height="2" fill="var(--cat-outline)" />
+            <g class="pant-tongue">
+              <rect x="13.5" y="19" width="3" height="3" fill="#F47F9A" />
+              <rect x="14" y="22" width="2" height="1" fill="#F47F9A" />
+            </g>
+          </g>
         </g>
-
       </g>
-
     </g>
   </g>
 </svg>

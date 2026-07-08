@@ -1,6 +1,6 @@
 /* ============================================================
-   Muffin landing — cozy pixel-pet aesthetic.
-   One accent (Muffin pink, taken from the cat's own mouth #df6177).
+   Biscuit landing — cozy pixel-pet aesthetic.
+   One accent (Biscuit pink, taken from the dog's own mouth #df6177).
    One radius system (pill buttons, 18px cards). Light + dark.
    ============================================================ */
 
@@ -25,23 +25,10 @@
   --shadow-sm: 0 6px 18px -10px rgba(120, 78, 60, 0.4);
   --radius:    18px;
   --maxw:      1180px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg:        #1A1714;
-    --bg-2:      #262019;
-    --bg-tint:   #2E2019;
-    --ink:       #F3EADF;
-    --ink-soft:  #B7A99B;
-    --line:      #382f28;
-    --accent:    #E8788D;
-    --accent-strong: #C2425A;
-    --link:      #EE8398;
-    --spot:      rgba(255, 233, 214, 0.10);
-    --shadow:    0 22px 48px -24px rgba(0,0,0,0.7);
-    --shadow-sm: 0 8px 22px -12px rgba(0,0,0,0.6);
-  }
+  /* Biscuit's landing is intentionally always the warm cream palette — the cozy
+     brand look — regardless of the device's dark-mode setting. color-scheme:light
+     also keeps form controls/scrollbars from auto-darkening on dark phones. */
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
@@ -70,17 +57,44 @@ a  { color: var(--link); text-decoration: none; }
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
   mix-blend-mode: multiply;
 }
-@media (prefers-color-scheme: dark) { .grain { mix-blend-mode: screen; opacity: 0.4; } }
 
 /* ---------- live cat rendering ---------- */
 .cat-svg { display: block; width: 100%; height: 100%;
-  --cat-color: #2C2723; --cat-outline: var(--bg); --eye-bg-color: #FFFFFF; --eye-color: #2C2723;
+  --cat-color: #E0A458; --cat-outline: #5A3A1A; --eye-bg-color: #FFFFFF; --eye-color: #2A1A0A;
   image-rendering: pixelated; overflow: visible;
+  touch-action: manipulation; -webkit-user-select: none; user-select: none;
 }
-@media (prefers-color-scheme: dark) {
-  /* Lift the body off near-black so the cat reads as a filled shape on dark,
-     not just a floating outline. Recolored swatches override --cat-color inline. */
-  .cat-svg { --cat-color: #3E362F; --cat-outline: #C9B8A4; }
+
+/* Petting: hover an interactive dog and he pants like the real app does.
+   app.js toggles .is-petting per-dog (page-scoped, so only the hovered dog
+   reacts). Class selectors are used because app.js namespaces element ids. */
+.cat-svg .pant-mouth { opacity: 0; }
+.cat-svg.is-petting .rest-mouth { opacity: 0; }
+.cat-svg.is-petting .pant-mouth { opacity: 1; }
+.cat-svg.is-petting .pant-tongue {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pant-tongue 0.62s steps(2, end) infinite;
+}
+/* Happy squint while petted (mirrors the app's purr). */
+.cat-svg.is-petting .eye-l-blink,
+.cat-svg.is-petting .eye-r-blink {
+  animation: purr-eye-close 0.22s ease-out forwards,
+             purr-eye-hide 0.01s linear 0.22s forwards !important;
+}
+.cat-svg.is-petting .closed-eye-line {
+  animation: purr-closed-eye-show 0.01s linear 0.22s forwards;
+}
+.cat-svg.is-petting .tail-sway {
+  animation: purr-tail-flutter 0.4s steps(2, end) infinite !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cat-svg.is-petting .pant-tongue,
+  .cat-svg.is-petting .tail-sway { animation: none; }
+}
+@keyframes pant-tongue {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(1px); }
 }
 
 /* ---------- buttons ---------- */
@@ -189,6 +203,9 @@ a  { color: var(--link); text-decoration: none; }
 .cell-tint .vignette-stage { background: radial-gradient(circle at 50% 46%, var(--spot), transparent 62%), color-mix(in srgb, var(--accent) 14%, var(--bg-2)); }
 .vignette-cat { width: 52%; aspect-ratio: 1/1; }
 .vignette-cat.pose-playbow { width: 86%; aspect-ratio: 72 / 56; }
+/* Real screen-recording demo. Black background drops out via screen blend so
+   the dog floats on the card gradient like the SVG vignettes. */
+.vignette-video { width: 150px; height: 150px; object-fit: cover; image-rendering: pixelated; mix-blend-mode: screen; }
 .floaty-heart {
   position: absolute; left: 50%; bottom: 44%; width: 17px; height: 13px; opacity: 0;
   background: var(--accent);

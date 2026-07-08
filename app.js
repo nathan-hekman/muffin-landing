@@ -1,4 +1,4 @@
-/* Muffin landing — live cat rendering + interactions. Vanilla, no build step. */
+/* Biscuit landing — live dog rendering + interactions. Vanilla, no build step. */
 (() => {
   "use strict";
 
@@ -10,7 +10,7 @@
 
   // Per-swatch recolor. The cat body reads --cat-color; pupils --eye-color;
   // the 1px edge --cat-outline (light colorways need a visible edge). Mouth
-  // stays Muffin pink (baked into the art).
+  // stays Biscuit pink (baked into the art).
   const COLORS = {
     c1: {},                                                     // Midnight (theme default so it reads in dark mode too)
     c2: { color: "#E08A3E", eye: "#5A3310" },                   // Marmalade
@@ -70,7 +70,31 @@
 
     if (node.getAttribute("data-follow") === "true" && !reduceMotion) {
       followCats.push(svg);
+      enablePetting(svg);
     }
+  }
+
+  // Pet a live dog: hovering him makes him pant — open mouth, pink tongue, happy
+  // squint — just like the desktop app. Scoped per-svg via .is-petting so only
+  // the dog under the cursor reacts. The pant lingers ~700ms after you leave,
+  // matching the app's purr-clear feel.
+  const petClearTimers = new WeakMap();
+  function enablePetting(svg) {
+    const start = () => {
+      clearTimeout(petClearTimers.get(svg));
+      svg.classList.add("is-petting");
+    };
+    const end = () => {
+      petClearTimers.set(svg, setTimeout(() => svg.classList.remove("is-petting"), 700));
+    };
+    // pointerenter/move cover desktop hover; pointerdown/up cover touch taps so
+    // the dog also pants when tapped on a phone. The pant lingers after release.
+    svg.addEventListener("pointerenter", start);
+    svg.addEventListener("pointermove", start);
+    svg.addEventListener("pointerdown", start);
+    svg.addEventListener("pointerleave", end);
+    svg.addEventListener("pointerup", end);
+    svg.addEventListener("pointercancel", end);
   }
 
   async function mountCats() {

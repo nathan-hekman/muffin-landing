@@ -234,14 +234,10 @@
       <path d="M8 17H6V19H5V21H4V26H5V30H7V31H8V32H10V33H20V32H22V31H23V30H24V29H25V26H26V22H25V19H24V18H23V17H21V16H19V15H11V16H8V17Z" fill="var(--cat-color)"/>
       <g class="patches" clip-path="url(#head-clip)"></g>
     </g>
-    <g id="whiskers" data-heat-overlay="true">
-      <rect width="5" height="1" transform="translate(1 23)" fill="var(--cat-color)"/>
-      <rect width="6" height="1" transform="translate(0 26)" fill="var(--cat-color)"/>
-      <rect width="5" height="1" transform="translate(1 29)" fill="var(--cat-color)"/>
-    </g>
+    <g id="whiskers" data-heat-overlay="true"></g>
     <!-- Ears — installEarComponents injects the standard ear path dynamically -->
-    <g id="ear-left" data-ear-position="6 11"></g>
-    <g id="ear-right" data-ear-position="18 11"></g>
+    <g id="ear-left" data-ear-position="6 11"><path transform="translate(6 11)" d="M0 9V5H1V3H2V1H3V0H4V2H5V5H6V9Z" fill="var(--cat-color)"/></g>
+    <g id="ear-right" data-ear-position="18 11"><path transform="translate(18 11)" d="M0 8V3H1V1H2V0H4V1H5V3H6V5H4V4H3V3H2V5H1V8Z" fill="var(--cat-color)"/></g>
     <!-- Normally open eyes -->
     <g id="eyes-open">
       <g>
@@ -267,11 +263,10 @@
       <path d="M19 22 L15 24 L19 26" stroke="var(--cat-outline, #FFFFFF)" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
     <g id="mouth-nose" data-heat-overlay="true">
-      <rect x="12" y="26" width="3" height="1" fill="#df6177"/>
-      <rect x="13" y="27" width="1" height="2" fill="var(--cat-outline, #FFFFFF)"/>
-      <rect x="12" y="29" width="1" height="1" fill="var(--cat-outline, #FFFFFF)"/>
-      <rect x="14" y="29" width="1" height="1" fill="var(--cat-outline, #FFFFFF)"/>
-    </g>
+        <rect x="11.5" y="26.5" width="4" height="2" fill="var(--cat-outline)"/>
+        <rect x="13" y="28.5" width="1" height="1.5" fill="var(--cat-outline)"/>
+        <rect x="10.5" y="30" width="6" height="1" fill="var(--cat-outline)"/>
+      </g>
   </g>
 </g>
 </svg>
