@@ -4,7 +4,7 @@
 
   // Lemon Squeezy hosted checkout. Swap this for the real product/variant URL
   // once the store exists; the overlay + Apple Pay then work automatically.
-  const BUY_URL = "https://muffin.lemonsqueezy.com/buy/REPLACE-WITH-VARIANT-ID";
+  const BUY_URL = "https://biscuit-dog.lemonsqueezy.com/checkout/buy/65e7e272-692e-43a6-a4c6-3242d63c04b4";
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
