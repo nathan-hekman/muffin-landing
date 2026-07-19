@@ -23,6 +23,7 @@
       <span class="brand-name">Biscuit</span>
     </a>
     <nav class="nav-links" aria-label="Primary">
+      <a href="#demo">Demo</a>
       <a href="#tricks">Tricks</a>
       <a href="#make-yours">Colors</a>
       <a href="#price">Price</a>
@@ -49,6 +50,18 @@
       </div>
     </section>
 
+    <!-- DEMO: the real app, recorded on a real desktop -->
+    <section class="demo" id="demo">
+      <div class="section-head center">
+        <h2>Here he is, on a real desktop.</h2>
+        <p>Half a minute of Biscuit getting in the way of some very important work.</p>
+      </div>
+      <figure class="demo-frame reveal">
+        <video class="demo-video" src="assets/video/biscuit-demo.mp4" poster="assets/video/biscuit-demo-poster.png"
+               autoplay loop muted playsinline preload="metadata" controls></video>
+      </figure>
+    </section>
+
     <!-- TRICKS: bento grid, varied cells, one live cat inside -->
     <section class="tricks" id="tricks">
       <div class="section-head">
@@ -66,39 +79,59 @@
         </article>
 
         <article class="cell cell-tint cell-vignette reveal">
-          <div class="vignette-stage" aria-hidden="true">
-            <div class="vignette-cat pose-playbow" data-cat="grab" data-pose="playbow"></div>
+          <div class="vignette-stage vignette-stage-long" aria-hidden="true">
+            <img class="vignette-longdog" src="assets/img/longdog.png" alt="" width="365" height="1722" loading="lazy">
           </div>
           <h3>Pick him up</h3>
           <p>Grab him and he turns long and floppy, then snaps back into dog shape when released.</p>
         </article>
 
         <article class="cell cell-vignette reveal">
-          <div class="vignette-stage" aria-hidden="true">
-            <video class="vignette-video" src="assets/video/pet.mp4" poster="assets/video/pet-poster.png" autoplay loop muted playsinline></video>
+          <div class="vignette-stage vignette-stage-video" aria-hidden="true">
+            <video class="vignette-video" src="assets/video/petting.mp4" poster="assets/video/petting-poster.png"
+                   autoplay loop muted playsinline preload="metadata"></video>
           </div>
           <h3>Pet him, he pants</h3>
           <p>Little hearts, squinty-happy eyes, the whole bit.</p>
         </article>
 
-        <article class="cell cell-wide reveal">
-          <div class="cell-split">
-            <div>
-              <h3>He keeps you honest</h3>
-              <p>A gentle focus timer for deep work, with stretch nudges when your chair wins too long.</p>
-            </div>
-            <div class="mini-row" aria-hidden="true">
-              <span class="mini-pill"><i class="ph ph-timer"></i> Focus timer</span>
-              <span class="mini-pill"><i class="ph ph-person-simple-walk"></i> Stretch nudge</span>
-              <span class="mini-pill"><i class="ph ph-moon-stars"></i> Dock naps</span>
-            </div>
+        <article class="cell cell-vignette reveal">
+          <div class="vignette-stage vignette-stage-video" aria-hidden="true">
+            <video class="vignette-video" src="assets/video/typing.mp4" poster="assets/video/typing-poster.png"
+                   autoplay loop muted playsinline preload="metadata"></video>
           </div>
+          <h3>He notices what you are doing</h3>
+          <p>Paws tapping while you type, a bone to paw at when you scroll, and confetti when you really get going.</p>
+        </article>
+
+        <article class="cell reveal">
+          <i class="ph ph-terminal-window cell-ic" aria-hidden="true"></i>
+          <h3>He waits up for your agent</h3>
+          <p>Codex, Cursor and Kiro are watched from the moment he starts, with nothing to set up. When a run finishes he jumps, barks once, and lets you know.</p>
+        </article>
+
+        <article class="cell cell-vignette reveal">
+          <div class="vignette-stage vignette-stage-video" aria-hidden="true">
+            <video class="vignette-video" src="assets/video/stretch.mp4" poster="assets/video/stretch-poster.png"
+                   autoplay loop muted playsinline preload="metadata"></video>
+          </div>
+          <h3>He keeps you honest</h3>
+          <p>Set a focus timer, and when the session ends he gets up and has a long stretch until you do too.</p>
+        </article>
+
+        <article class="cell cell-tint cell-vignette reveal">
+          <div class="vignette-stage vignette-stage-video" aria-hidden="true">
+            <video class="vignette-video" src="assets/video/napping.mp4" poster="assets/video/napping-poster.png"
+                   autoplay loop muted playsinline preload="metadata"></video>
+          </div>
+          <h3>He sleeps when you are busy</h3>
+          <p>Leave him be and he curls up on the dock with little z's. Set how long he waits, or tell him never to.</p>
         </article>
 
         <article class="cell reveal">
           <i class="ph ph-sparkle cell-ic" aria-hidden="true"></i>
           <h3>Quiet by default</h3>
-          <p>Tiny, native, and always on top without making a production of it.</p>
+          <p>Tiny, native, and always on top without making a production of it. Menu bar controls, and your clicks pass straight through him.</p>
         </article>
       </div>
     </section>
@@ -115,6 +148,24 @@
         <figure class="swatch reveal" role="listitem"><div class="swatch-cat" data-cat="c3"></div><figcaption>Pebble</figcaption></figure>
         <figure class="swatch reveal" role="listitem"><div class="swatch-cat" data-cat="c4"></div><figcaption>Matcha</figcaption></figure>
         <figure class="swatch reveal" role="listitem"><div class="swatch-cat" data-cat="c5"></div><figcaption>Snow</figcaption></figure>
+      </div>
+
+      <div class="design">
+        <div class="design-copy">
+          <h3>Or paint him pixel by pixel.</h3>
+          <p>Custom Design gives you a real brush and nine separate body parts: head, body, tail, both ears
+            and all four legs. Start from one of eight coats, or from nothing at all.</p>
+          <ul class="design-points">
+            <li><i class="ph ph-paint-brush" aria-hidden="true"></i> Paint and erase, four brush sizes, undo and redo</li>
+            <li><i class="ph ph-eye" aria-hidden="true"></i> Eye color, odd eyes, and pupil size</li>
+            <li><i class="ph ph-image" aria-hidden="true"></i> Photo match: hand him a picture of your own dog and he takes its colors</li>
+            <li><i class="ph ph-export" aria-hidden="true"></i> Save your designs, and send them to a friend as a file</li>
+          </ul>
+        </div>
+        <figure class="design-shot reveal">
+          <img src="assets/img/custom-design.png" width="1600" height="1155" loading="lazy" decoding="async"
+               alt="Biscuit's Custom Design settings: a paint and erase toolbar, separate editable canvases for his ears, head, body and arms, and a list of coat presets including Dalmatian, Tricolor and Blue Merle.">
+        </figure>
       </div>
     </section>
 
@@ -163,7 +214,7 @@
         </details>
         <details class="faq-item reveal">
           <summary>What if I change my mind?<i class="ph ph-plus" aria-hidden="true"></i></summary>
-          <div class="faq-body"><p>Email hello@muffin.boo within 14 days and we will refund you, no hard feelings.</p></div>
+          <div class="faq-body"><p>Email hekman.nathan+1@gmail.com within 14 days and we will refund you, no hard feelings.</p></div>
         </details>
       </div>
     </section>
@@ -185,7 +236,7 @@
     <nav class="foot-links" aria-label="Footer">
       <a href="#price">Price</a>
       <a href="#faq">FAQ</a>
-      <a href="mailto:hello@muffin.boo">Say hi</a>
+      <a href="mailto:hekman.nathan+1@gmail.com">Say hi</a>
     </nav>
     <p class="foot-copy">© 2026 Biscuit</p>
   </footer>

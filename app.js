@@ -173,3 +173,22 @@
     start();
   }
 })();
+
+
+/* Autoplay nudge. The clips carry `autoplay`, but browsers will not start a
+   video that has never been on screen, and some (Safari in Low Power Mode)
+   will not resume one that scrolled away. Play only while visible, which is
+   also the polite thing to do for battery. */
+(function () {
+  const clips = document.querySelectorAll("video[autoplay]");
+  if (!clips.length) return;
+  if (!("IntersectionObserver" in window)) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      const v = e.target;
+      if (e.isIntersecting) { const p = v.play(); if (p) p.catch(() => {}); }
+      else if (!v.paused) { v.pause(); }
+    });
+  }, { threshold: 0.2 });
+  clips.forEach((v) => io.observe(v));
+})();

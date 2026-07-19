@@ -146,16 +146,21 @@ a  { color: var(--link); text-decoration: none; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 2rem; }
 .hero-foot { margin-top: 1.3rem; font-size: 0.92rem; color: var(--ink-soft); }
 
-.hero-stage { position: relative; aspect-ratio: 1 / 1; display: grid; place-items: center; }
+/* The hero SVG's viewBox (-8 -10 50 50) carries a lot of empty padding: the dog
+   only occupies y 1.1-36, so ~22% of the box is blank above him and ~8% below.
+   Centring the box therefore floats the dog well above his own shadow. The
+   values below centre the DOG rather than the box, and park the shadow at his
+   feet. If the pet SVG's viewBox ever changes, re-check these three rules. */
+.hero-stage { position: relative; aspect-ratio: 1 / 0.88; display: grid; place-items: center; }
 .hero-stage::before { /* warm spotlight so the dark cat reads on any theme */
   content: ""; position: absolute; inset: 6%;
   background: radial-gradient(circle at 50% 46%, var(--spot), transparent 62%);
   border-radius: 50%;
 }
-.stage-cat { position: relative; width: 64%; aspect-ratio: 1/1; z-index: 2; transform: translateY(-4%); }
+.stage-cat { position: relative; width: 70%; aspect-ratio: 1/1; z-index: 2; transform: translateY(3%); }
 .stage-dock {
-  position: absolute; bottom: 16%; left: 50%; transform: translateX(-50%);
-  width: 56%; height: 16px; border-radius: 50%; z-index: 1;
+  position: absolute; bottom: 11.5%; left: 50%; transform: translateX(-50%);
+  width: 44%; height: 16px; border-radius: 50%; z-index: 1;
   background: radial-gradient(ellipse at center, color-mix(in srgb, var(--ink) 22%, transparent), transparent 70%);
   filter: blur(2px);
 }
@@ -196,16 +201,29 @@ a  { color: var(--link); text-decoration: none; }
 .cell-vignette { gap: 0; }
 .cell-vignette h3 { margin-top: 0.1rem; }
 .vignette-stage {
-  position: relative; width: 100%; height: 150px; margin-bottom: 0.95rem;
+  position: relative; width: 100%; height: 170px; margin-bottom: 0.95rem;
   border-radius: 12px; overflow: hidden; display: grid; place-items: center;
   background: radial-gradient(circle at 50% 46%, var(--spot), transparent 60%), var(--bg-tint);
 }
 .cell-tint .vignette-stage { background: radial-gradient(circle at 50% 46%, var(--spot), transparent 62%), color-mix(in srgb, var(--accent) 14%, var(--bg-2)); }
 .vignette-cat { width: 52%; aspect-ratio: 1/1; }
 .vignette-cat.pose-playbow { width: 86%; aspect-ratio: 72 / 56; }
-/* Real screen-recording demo. Black background drops out via screen blend so
-   the dog floats on the card gradient like the SVG vignettes. */
-.vignette-video { width: 150px; height: 150px; object-fit: cover; image-rendering: pixelated; mix-blend-mode: screen; }
+/* Real screen-recording demos, shot on a light document background.
+   NOTE: do NOT reintroduce mix-blend-mode here. The previous clip had a black
+   backdrop and used `screen` to drop it, but screen-blending against these
+   white cards resolves to white and erased the dog entirely. These clips are
+   letterboxed with `contain` instead, so nothing is cropped away — petting.mp4
+   in particular is nearly square and would lose its hearts under `cover`.
+   Sizing note: percentage heights do not resolve on a grid item here, and a
+   replaced element will not stretch to left/right offsets either - both routes
+   let the clip overflow the stage. Absolute positioning with explicit calc()
+   dimensions is what actually constrains it. */
+.vignette-video {
+  position: absolute; top: 10px; left: 10px;
+  width: calc(100% - 20px); height: calc(100% - 20px);
+  object-fit: contain; image-rendering: pixelated;
+  border-radius: 8px;
+}
 .floaty-heart {
   position: absolute; left: 50%; bottom: 44%; width: 17px; height: 13px; opacity: 0;
   background: var(--accent);
@@ -349,3 +367,65 @@ a  { color: var(--link); text-decoration: none; }
 @media (max-width: 420px) {
   .color-row { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ---------- demo reel ---------- */
+.demo { padding: clamp(1rem, 3vw, 2rem) 0 clamp(2rem, 5vw, 3.5rem); }
+.demo-frame {
+  max-width: min(980px, calc(100% - 2.4rem)); margin: 2rem auto 0;
+  border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--line); box-shadow: var(--shadow-sm);
+  background: var(--bg-2); line-height: 0;
+}
+.demo-video { width: 100%; height: auto; display: block; }
+
+/* ---------- long dog vignette ----------
+   longdog.png is 365x1722 - far taller than the 150px stage. Rather than
+   shrinking him to a sliver, he is oversized and cropped by the stage so he
+   runs out of the bottom of the frame, which is the point of the trick. The
+   mask softens that crop into a fade. */
+.vignette-stage-long { place-items: start center; }
+.vignette-longdog {
+  height: 440px; width: auto; margin-top: 12px;
+  image-rendering: pixelated;
+  -webkit-mask-image: linear-gradient(to bottom, #000 66%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 66%, transparent 100%);
+}
+
+
+/* ---------- custom design ---------- */
+.design {
+  max-width: var(--maxw); margin: clamp(2.5rem, 6vw, 4rem) auto 0;
+  padding: 0 clamp(1.2rem, 4vw, 2.4rem);
+  display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(1.5rem, 4vw, 3rem); align-items: center;
+}
+.design-copy h3 { font-size: clamp(1.5rem, 2.6vw, 2rem); }
+.design-copy > p { margin-top: 0.9rem; color: var(--ink-soft); }
+.design-points { list-style: none; margin-top: 1.4rem; display: grid; gap: 0.75rem; }
+.design-points li {
+  display: grid; grid-template-columns: 1.35rem 1fr; gap: 0.65rem;
+  align-items: start; color: var(--ink-soft); font-size: 0.98rem;
+}
+.design-points i { color: var(--accent); font-size: 1.1rem; line-height: 1.4; }
+.design-shot {
+  border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--line); box-shadow: var(--shadow-sm); line-height: 0;
+}
+.design-shot img { width: 100%; height: auto; display: block; }
+
+@media (max-width: 900px) {
+  .design { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .vignette-longdog { height: 360px; }
+}
+
+/* Footage stages: these clips were recorded over a white document, so a tinted
+   stage makes the video read as a white rectangle pasted onto pink. Matching
+   the stage to the footage lets the letterboxed edges disappear, and the
+   hairline keeps it looking like a deliberate screen capture. */
+.vignette-stage-video {
+  background: #FDFCFB;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--line) 60%, transparent);
+}
+.vignette-stage-video .vignette-video { border-radius: 6px; }
