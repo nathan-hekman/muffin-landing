@@ -6,6 +6,21 @@
   // once the store exists; the overlay + Apple Pay then work automatically.
   const BUY_URL = "https://biscuit-dog.lemonsqueezy.com/checkout/buy/65e7e272-692e-43a6-a4c6-3242d63c04b4";
 
+  // Optional "buy the developer a coffee" add-on. Lemon Squeezy has no concept
+  // of an order bump on a hosted checkout, so the add-on is a SECOND product
+  // (app + coffee) and ticking the box swaps which checkout opens.
+  //
+  // BUNDLE_URL is empty until that second product exists. While it is empty the
+  // whole add-on hides itself (see initCoffee) rather than offering a box that
+  // would open a dead checkout. Paste the bundle's buy URL here to switch it on.
+  const BUNDLE_URL = "";
+
+  const APP_PRICE = 3;     // display only; Lemon Squeezy is the source of truth
+  const COFFEE_PRICE = 3;  // display only
+
+  const coffeeAvailable = () => BUNDLE_URL !== "";
+  const coffeeChecked = () => !!document.querySelector("[data-coffee]:checked");
+
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Per-swatch recolor. The cat body reads --cat-color; pupils --eye-color;
@@ -144,17 +159,46 @@
 
   function openCheckout(e) {
     if (e) e.preventDefault();
+    const url = coffeeAvailable() && coffeeChecked() ? BUNDLE_URL : BUY_URL;
     try {
       if (window.LemonSqueezy && window.LemonSqueezy.Url && window.LemonSqueezy.Url.Open) {
-        window.LemonSqueezy.Url.Open(BUY_URL);
+        window.LemonSqueezy.Url.Open(url);
         return;
       }
     } catch (_) { /* fall through to new tab */ }
-    window.open(BUY_URL, "_blank", "noopener");
+    window.open(url, "_blank", "noopener");
+  }
+
+  // Keep every displayed price in step with the checkbox: the two chips in the
+  // buy buttons and the total on the price card.
+  function syncCoffee() {
+    const total = APP_PRICE + (coffeeChecked() ? COFFEE_PRICE : 0);
+    document.querySelectorAll("[data-total]").forEach((n) => { n.textContent = "$" + total; });
+    document.querySelectorAll(".price-chip").forEach((n) => { n.textContent = "$" + total; });
+  }
+
+  function initCoffee() {
+    const blocks = document.querySelectorAll("[data-coffee-block]");
+    if (!coffeeAvailable()) {
+      // No bundle checkout configured, so remove the add-on entirely. Removing
+      // rather than hiding also drops the checkboxes from the DOM, so
+      // coffeeChecked() can never report true and totals stay at the app price.
+      blocks.forEach((b) => b.remove());
+      return;
+    }
+    document.querySelectorAll("[data-coffee]").forEach((c) => {
+      c.addEventListener("change", () => {
+        // Several boxes, one decision - keep them mirrored.
+        document.querySelectorAll("[data-coffee]").forEach((o) => { o.checked = c.checked; });
+        syncCoffee();
+      });
+    });
+    syncCoffee();
   }
 
   function initBuy() {
     document.querySelectorAll("[data-buy]").forEach((b) => b.addEventListener("click", openCheckout));
+    initCoffee();
   }
 
   function start() {
