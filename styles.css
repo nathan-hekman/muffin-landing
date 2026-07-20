@@ -51,6 +51,11 @@ h2 { font-size: clamp(1.9rem, 4vw, 3rem); }
 h3 { font-size: 1.22rem; font-weight: 700; letter-spacing: -0.01em; }
 p  { margin: 0; }
 a  { color: var(--link); text-decoration: none; }
+/* <figure> ships with a UA default `margin: 1em 40px`. Every figure on this page
+   (.swatch, .demo-frame, .design-shot) was silently carrying 80px of horizontal
+   margin, which inflated the min-content size of the .color-row grid tracks and
+   pushed the document wider than a phone viewport. Reset it. */
+figure { margin: 0; }
 
 .grain {
   position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: 0.5;
@@ -196,6 +201,15 @@ a  { color: var(--link); text-decoration: none; }
 }
 .cell-lead .cell-cat > div { width: 58%; aspect-ratio: 1/1; }
 .cell-tint { background: var(--bg-tint); border-color: color-mix(in srgb, var(--accent) 26%, var(--line)); }
+/* The grid holds six cells and .cell-lead eats two rows, which leaves the last
+   row short. Let the final cell run the full width so there is no hole, and lay
+   its icon beside the title since a full-width card stacked vertically looks
+   empty. */
+.bento .cell:last-child {
+  grid-column: 1 / -1;
+  flex-direction: row; align-items: center; gap: 0.9rem;
+}
+.bento .cell:last-child h3 { margin-top: 0; }
 
 /* live "trick" vignettes inside feature cells */
 .cell-vignette { gap: 0; }
@@ -357,15 +371,51 @@ a  { color: var(--link); text-decoration: none; }
   .cell-split > div:first-child { max-width: none; }
   .mini-row { align-items: center; }
 
-  .color-row { grid-template-columns: repeat(3, 1fr); }
+  /* Colors become a swipeable carousel instead of a cramped 2-3 column grid.
+     The section padding doubles as the edge inset so the first and last swatch
+     are never flush against the screen; scroll-padding keeps snapping aligned
+     to that same inset. overflow-y is pinned to hidden (overflow-x:auto would
+     otherwise compute overflow-y to auto and add a stray vertical scrollbar);
+     the block padding leaves room for the -5px hover lift and its shadow. */
+  .color-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 2rem;
+    padding-block: 8px 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: clamp(1.2rem, 4vw, 2.4rem);
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .color-row::-webkit-scrollbar { width: 0; height: 0; }
+  .swatch {
+    flex: 0 0 42vw;
+    min-width: 132px;
+    max-width: 176px;
+    scroll-snap-align: center;
+  }
+  /* The scroll-reveal observer (app.js) unobserves on first intersection and
+     never fires for the swatches parked off the right edge of the carousel, so
+     they would stay at opacity 0 forever once you swipe to them. Inside the
+     carousel the swatches are simply always visible. */
+  .color-row .reveal { opacity: 1; transform: none; }
+
+  /* Safari/Chrome drop the trailing padding of a flex scroll container in some
+     versions; this spacer guarantees the last swatch keeps its edge gap. */
+  .color-row::after {
+    content: "";
+    flex: 0 0 1px;
+    align-self: stretch;
+  }
 
   /* Footer stacks and centers */
   .foot { flex-direction: column; align-items: center; text-align: center; gap: 0.8rem; }
   .foot-links { margin-left: 0; }
   .foot-copy { text-align: center; }
-}
-@media (max-width: 420px) {
-  .color-row { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ---------- demo reel ---------- */

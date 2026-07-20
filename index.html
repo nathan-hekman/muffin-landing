@@ -24,12 +24,10 @@
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#demo">Demo</a>
-      <a href="#tricks">Tricks</a>
-      <a href="#make-yours">Colors</a>
       <a href="#price">Price</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <button class="btn btn-primary nav-cta" data-buy>Get Biscuit</button>
+    <button class="btn btn-primary nav-cta" data-buy>Adopt Biscuit</button>
   </header>
 
   <main>
@@ -39,10 +37,9 @@
         <h1 class="hero-title">Biscuit lives on<br>your desktop.</h1>
         <p class="hero-sub">He watches your cursor, naps on your dock, and reminds you to take breaks.</p>
         <div class="hero-cta">
-          <button class="btn btn-primary btn-lg" data-buy>Get Biscuit <span class="price-chip">$3</span></button>
+          <button class="btn btn-primary btn-lg" data-buy>Adopt Biscuit <span class="price-chip">$3</span></button>
           <a class="btn btn-ghost btn-lg" href="#tricks">See his tricks</a>
         </div>
-        <p class="hero-foot">For Apple Silicon Macs, macOS 12+.</p>
       </div>
       <div class="hero-stage">
         <div class="stage-cat" data-cat="hero" data-follow="true"></div>
@@ -52,10 +49,6 @@
 
     <!-- DEMO: the real app, recorded on a real desktop -->
     <section class="demo" id="demo">
-      <div class="section-head center">
-        <h2>Here he is on a real desktop.</h2>
-        <p>Thirty seconds with Biscuit around.</p>
-      </div>
       <figure class="demo-frame reveal">
         <video class="demo-video" src="assets/video/biscuit-demo.mp4" poster="assets/video/biscuit-demo-poster.png"
                autoplay loop muted playsinline preload="metadata" controls></video>
@@ -65,16 +58,14 @@
     <!-- TRICKS: bento grid, varied cells, one live cat inside -->
     <section class="tricks" id="tricks">
       <div class="section-head">
-        <h2>Small dog. Plenty going on.</h2>
-        <p>He lives over your windows and reacts as you work. No chores, no account.</p>
+        <h2>He reacts to how you work.</h2>
       </div>
 
       <div class="bento">
         <article class="cell cell-lead reveal">
           <div class="cell-cat" data-cat="follow" data-follow="true"></div>
           <div class="cell-text">
-            <h3>He watches your cursor</h3>
-            <p>Biscuit follows your mouse with his eyes. Flick fast and he crouches to pounce.</p>
+            <h3>He follows your mouse</h3>
           </div>
         </article>
 
@@ -83,7 +74,6 @@
             <img class="vignette-longdog" src="assets/img/longdog.png" alt="" width="365" height="1722" loading="lazy">
           </div>
           <h3>Pick him up</h3>
-          <p>Drag him around and he stretches long, then springs back into shape.</p>
         </article>
 
         <article class="cell cell-vignette reveal">
@@ -91,8 +81,7 @@
             <video class="vignette-video" src="assets/video/petting.mp4" poster="assets/video/petting-poster.png"
                    autoplay loop muted playsinline preload="metadata"></video>
           </div>
-          <h3>Hover to pet him</h3>
-          <p>He pants, squints, and gets a few little hearts.</p>
+          <h3>Who&rsquo;s a good boy?</h3>
         </article>
 
         <article class="cell cell-vignette reveal">
@@ -100,23 +89,7 @@
             <video class="vignette-video" src="assets/video/typing.mp4" poster="assets/video/typing-poster.png"
                    autoplay loop muted playsinline preload="metadata"></video>
           </div>
-          <h3>He notices your rhythm</h3>
-          <p>Paws for typing, a bone for scrolling, confetti when you hit a streak.</p>
-        </article>
-
-        <article class="cell reveal">
-          <i class="ph ph-terminal-window cell-ic" aria-hidden="true"></i>
-          <h3>He watches your agent</h3>
-          <p>Codex, Cursor, and Kiro work with zero setup. When a run finishes, Biscuit jumps, barks once, and lets you know.</p>
-        </article>
-
-        <article class="cell cell-vignette reveal">
-          <div class="vignette-stage vignette-stage-video" aria-hidden="true">
-            <video class="vignette-video" src="assets/video/stretch.mp4" poster="assets/video/stretch-poster.png"
-                   autoplay loop muted playsinline preload="metadata"></video>
-          </div>
-          <h3>He keeps time</h3>
-          <p>Set a focus timer. When it ends, Biscuit stands up and stretches.</p>
+          <h3>He types with you</h3>
         </article>
 
         <article class="cell cell-tint cell-vignette reveal">
@@ -124,14 +97,12 @@
             <video class="vignette-video" src="assets/video/napping.mp4" poster="assets/video/napping-poster.png"
                    autoplay loop muted playsinline preload="metadata"></video>
           </div>
-          <h3>He sleeps when you are busy</h3>
-          <p>After some idle time, he naps on the dock. Set the delay, or turn it off.</p>
+          <h3>He takes naps</h3>
         </article>
 
         <article class="cell reveal">
           <i class="ph ph-sparkle cell-ic" aria-hidden="true"></i>
-          <h3>Quiet by default</h3>
-          <p>Tiny, native, and always on top. Menu bar controls, any size, and clicks pass through.</p>
+          <h3>He&rsquo;s always there for you</h3>
         </article>
       </div>
     </section>
@@ -139,8 +110,7 @@
     <!-- MAKE YOURS: horizontal row of recolored cats -->
     <section class="make-yours" id="make-yours">
       <div class="section-head center">
-        <h2>Make Biscuit yours.</h2>
-        <p>Recolor each part, or start from a preset. Same dog, your palette.</p>
+        <h2>Customize Biscuit.</h2>
       </div>
       <div class="color-row" role="list">
         <figure class="swatch reveal" role="listitem"><div class="swatch-cat" data-cat="c1"></div><figcaption>Midnight</figcaption></figure>
@@ -153,14 +123,8 @@
       <div class="design">
         <div class="design-copy">
           <h3>Paint him pixel by pixel.</h3>
-          <p>Custom Design gives you a brush and nine paintable parts: head, body, tail, both ears,
-            and all four legs. Start from one of eight coats, or from nothing.</p>
-          <ul class="design-points">
-            <li><i class="ph ph-paint-brush" aria-hidden="true"></i> Paint and erase, four brush sizes, undo and redo</li>
-            <li><i class="ph ph-eye" aria-hidden="true"></i> Eye color, odd eyes, and pupil size</li>
-            <li><i class="ph ph-image" aria-hidden="true"></i> Photo match pulls colors from a picture of your dog</li>
-            <li><i class="ph ph-export" aria-hidden="true"></i> Save designs and share them as files</li>
-          </ul>
+          <p>Upload a picture of your own pup to match his coloring, then customize to your
+            heart&rsquo;s content.</p>
         </div>
         <figure class="design-shot reveal">
           <img src="assets/img/custom-design.png" width="1600" height="1155" loading="lazy" decoding="async"
@@ -173,14 +137,7 @@
     <section class="price" id="price">
       <div class="price-card reveal">
         <div class="price-cat" data-cat="price" data-follow="true" aria-hidden="true"></div>
-        <h2>$3, and yours forever.</h2>
-        <p class="price-lead">One payment. No subscription, no account, no catch.</p>
-        <ul class="price-list">
-          <li><i class="ph ph-check"></i> The full app</li>
-          <li><i class="ph ph-check"></i> Updates included</li>
-          <li><i class="ph ph-check"></i> Apple Pay checkout, instant download</li>
-          <li><i class="ph ph-check"></i> Runs on Apple Silicon Macs</li>
-        </ul>
+        <h2>Three bucks, and he&rsquo;s yours forever.</h2>
         <label class="coffee-addon" data-coffee-block>
           <input type="checkbox" data-coffee>
           <span class="coffee-copy">
@@ -190,8 +147,7 @@
           <span class="coffee-price">+$3</span>
         </label>
         <div class="price-total" data-coffee-block><span>Total</span><span data-total>$3</span></div>
-        <button class="btn btn-primary btn-lg price-buy" data-buy>Get Biscuit <span class="price-chip">$3</span></button>
-        <p class="price-fine">One-time payment. Secure checkout by Lemon Squeezy.</p>
+        <button class="btn btn-primary btn-lg price-buy" data-buy>Adopt Biscuit <span class="price-chip">$3</span></button>
       </div>
     </section>
 
@@ -204,18 +160,6 @@
         <details class="faq-item reveal">
           <summary>Which Macs can run Biscuit?<i class="ph ph-plus" aria-hidden="true"></i></summary>
           <div class="faq-body"><p>Any Apple Silicon Mac, M1 or newer, on macOS 12 Monterey or later.</p></div>
-        </details>
-        <details class="faq-item reveal">
-          <summary>How do I install him?<i class="ph ph-plus" aria-hidden="true"></i></summary>
-          <div class="faq-body"><p>After checkout, download the disk image. Open it and drag Biscuit into Applications.</p></div>
-        </details>
-        <details class="faq-item reveal">
-          <summary>Is this a subscription?<i class="ph ph-plus" aria-hidden="true"></i></summary>
-          <div class="faq-body"><p>No. Pay $3 once and Biscuit is yours, updates included. Nothing renews.</p></div>
-        </details>
-        <details class="faq-item reveal">
-          <summary>Will he slow down my Mac?<i class="ph ph-plus" aria-hidden="true"></i></summary>
-          <div class="faq-body"><p>He is a tiny native app that mostly sits around. He stays light and out of your way.</p></div>
         </details>
         <details class="faq-item reveal">
           <summary>Does Biscuit need any permissions?<i class="ph ph-plus" aria-hidden="true"></i></summary>
@@ -232,7 +176,7 @@
     <section class="closer">
       <div class="closer-cat" data-cat="closer" data-follow="true" aria-hidden="true"></div>
       <h2>Room on your dock?</h2>
-      <button class="btn btn-primary btn-lg" data-buy>Get Biscuit <span class="price-chip">$3</span></button>
+      <button class="btn btn-primary btn-lg" data-buy>Adopt Biscuit <span class="price-chip">$3</span></button>
     </section>
   </main>
 
@@ -241,7 +185,7 @@
       <span class="brand-mark sm" data-cat="footmark" aria-hidden="true"></span>
       <span>Biscuit</span>
     </div>
-    <p class="foot-line">Made for your dock.</p>
+    <p class="foot-line">Made by one person.</p>
     <nav class="foot-links" aria-label="Footer">
       <a href="#price">Price</a>
       <a href="#faq">FAQ</a>
