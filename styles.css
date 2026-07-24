@@ -298,6 +298,8 @@ figure { margin: 0; }
 .price-list li { display: flex; align-items: center; gap: 0.7rem; font-weight: 500; }
 .price-list i { color: var(--accent-strong); font-size: 1.1rem; background: var(--bg-tint); border-radius: 50%; padding: 0.28rem; }
 .price-buy { margin-top: 0.4rem; }
+.price-alt { margin-top: 1.1rem; font-size: 0.92rem; color: var(--ink-soft); }
+.price-alt a { color: var(--accent); }
 .price-fine { margin-top: 1rem; font-size: 0.88rem; color: var(--ink-soft); }
 
 /* ---------- faq ---------- */

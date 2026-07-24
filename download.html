@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Download Biscuit</title>
+  <meta name="description" content="Already adopted Biscuit? Download the app and wake him with the license key from your receipt email.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="assets/fonts/outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    /* Page-local layout only; all look-and-feel comes from styles.css. */
+    .dl { max-width: 720px; margin: 0 auto; padding: clamp(3rem, 8vw, 6rem) clamp(1.2rem, 4vw, 2.4rem); }
+    .dl-sub { margin-top: 1.2rem; font-size: clamp(1.05rem, 1.7vw, 1.32rem); color: var(--ink-soft); max-width: 46ch; }
+    .dl-cta { margin-top: 2rem; }
+    .dl-note { margin-top: 0.8rem; font-size: 0.92rem; color: var(--ink-soft); }
+    .dl-steps { margin-top: clamp(2.5rem, 5vw, 4rem); }
+    .dl-steps h2 { font-size: clamp(1.3rem, 2.4vw, 1.7rem); }
+    .dl-steps ol { margin: 1.2rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.7rem; counter-reset: step; }
+    .dl-steps li {
+      counter-increment: step; display: flex; gap: 0.9rem; align-items: baseline;
+      background: var(--bg-2); border: 1px solid var(--line); border-radius: 14px;
+      padding: 1rem 1.3rem; color: var(--ink-soft);
+    }
+    .dl-steps li::before { content: counter(step); font-weight: 800; color: var(--accent); }
+    .dl-help { margin-top: clamp(2rem, 4vw, 3rem); color: var(--ink-soft); }
+    .dl-help a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav" id="top">
+    <a class="brand" href="index.html" aria-label="Biscuit home">
+      <span class="brand-mark" data-cat="brand" aria-hidden="true"></span>
+      <span class="brand-name">Biscuit</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#demo">Demo</a>
+      <a href="index.html#price">Price</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary nav-cta" href="https://github.com/nathan-hekman/biscuit-releases/releases/latest">Download</a>
+  </header>
+
+  <main>
+    <section class="dl">
+      <h1 class="hero-title">Download Biscuit.</h1>
+      <p class="dl-sub">Already adopted? Grab the app below, then wake Biscuit with the license key from your receipt email.</p>
+      <div class="dl-cta">
+        <a class="btn btn-primary btn-lg" href="https://github.com/nathan-hekman/biscuit-releases/releases/latest">Download for Apple Silicon</a>
+        <p class="dl-note">M1 or newer, macOS 12 Monterey or later. The download is a DMG.</p>
+      </div>
+
+      <div class="dl-steps">
+        <h2>After downloading</h2>
+        <ol>
+          <li>Open the DMG and drag Biscuit into Applications.</li>
+          <li>Open Biscuit and enter the license key from your receipt email. The same key works across your Macs, up to 5.</li>
+          <li>Grant Accessibility permission so Biscuit can react to your typing. He knows a key was pressed, never which one.</li>
+        </ol>
+      </div>
+
+      <p class="dl-help">Stuck, or can&rsquo;t find your key? Email <a href="mailto:hekman.nathan+1@gmail.com">hekman.nathan+1@gmail.com</a> and a human will sort it out.</p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-brand">
+      <span class="brand-mark sm" data-cat="footmark" aria-hidden="true"></span>
+      <span>Biscuit</span>
+    </div>
+    <p class="foot-line">Made by one person.</p>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="index.html#price">Price</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="mailto:hekman.nathan+1@gmail.com">Say hi</a>
+    </nav>
+    <p class="foot-copy">© 2026 Biscuit</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

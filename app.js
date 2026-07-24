@@ -2,21 +2,19 @@
 (() => {
   "use strict";
 
-  // Lemon Squeezy hosted checkout. Swap this for the real product/variant URL
-  // once the store exists; the overlay + Apple Pay then work automatically.
-  const BUY_URL = "https://biscuit-dog.lemonsqueezy.com/checkout/buy/65e7e272-692e-43a6-a4c6-3242d63c04b4";
+  // Lemon Squeezy hosted checkout (live-mode variant, verified 2026-07-21).
+  const BUY_URL = "https://biscuit-dog.lemonsqueezy.com/checkout/buy/233c71d6-f1f8-4cf7-afd8-191492b2b353";
 
   // Optional "buy the developer a coffee" add-on. Lemon Squeezy has no concept
   // of an order bump on a hosted checkout, so the add-on is a SECOND product
   // (app + coffee) and ticking the box swaps which checkout opens.
   //
-  // BUNDLE_URL is empty until that second product exists. While it is empty the
-  // whole add-on hides itself (see initCoffee) rather than offering a box that
-  // would open a dead checkout. Paste the bundle's buy URL here to switch it on.
-  const BUNDLE_URL = "";
+  // Bundle product "Biscuit + Coffee for the Developer" ($5, live-mode variant).
+  // If this is ever emptied again, the whole add-on hides itself (see initCoffee).
+  const BUNDLE_URL = "https://biscuit-dog.lemonsqueezy.com/checkout/buy/e3e8ce05-d680-4553-bdaa-d2b084cb6491";
 
   const APP_PRICE = 3;     // display only; Lemon Squeezy is the source of truth
-  const COFFEE_PRICE = 3;  // display only
+  const COFFEE_PRICE = 2;  // display only
 
   const coffeeAvailable = () => BUNDLE_URL !== "";
   const coffeeChecked = () => !!document.querySelector("[data-coffee]:checked");
